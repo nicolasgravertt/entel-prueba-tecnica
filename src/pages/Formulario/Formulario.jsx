@@ -2,7 +2,13 @@ import Header from "../../components/Formulario/Header";
 import TextField from "@mui/material/TextField";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
-import { Divider } from "@mui/material";
+import {
+  Divider,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import { useDispatch } from "react-redux";
 import { userAdded } from "../../features/dataSlice";
 import { useSnackbar } from "notistack";
@@ -24,8 +30,8 @@ const initialValues = {
   nombre: "",
   rut: "",
   patente: "",
-  marca: "",
-  modelo: "",
+  marca: "Marca 1",
+  modelo: "Modelo 1",
   precio: "",
 };
 
@@ -95,22 +101,35 @@ const Formulario = () => {
                     as={TextField}
                     error={Boolean(touched.patente && errors.patente)}
                   />
-                  <Field
-                    id="marca"
-                    name="marca"
-                    label="Marca del vehículo *"
-                    helperText={touched.marca && errors.marca}
-                    as={TextField}
-                    error={Boolean(touched.marca && errors.marca)}
-                  />
-                  <Field
-                    id="modelo"
-                    name="modelo"
-                    label="Modelo del vehículo *"
-                    helperText={touched.modelo && errors.modelo}
-                    as={TextField}
-                    error={Boolean(touched.modelo && errors.modelo)}
-                  />
+                  <FormControl fullWidth>
+                    <InputLabel id="marca-label">Marca</InputLabel>
+                    <Field
+                      as={Select}
+                      labelId="marca-label"
+                      name="marca"
+                      id="marca"
+                      label="Marca"
+                    >
+                      <MenuItem value={"Marca 1"}>Marca 1</MenuItem>
+                      <MenuItem value={"Marca 2"}>Marca 2</MenuItem>
+                      <MenuItem value={"Marca 3"}>Marca 3</MenuItem>
+                      <MenuItem value={"Marca 4"}>Marca 4</MenuItem>
+                      <MenuItem value={"Marca 5"}>Marca 5</MenuItem>
+                    </Field>
+                  </FormControl>
+                  <FormControl fullWidth>
+                    <InputLabel id="modelo-label">Modelo</InputLabel>
+                    <Field
+                      as={Select}
+                      labelId="modelo-label"
+                      id="modelo"
+                      name="modelo"
+                      label="Modelo"
+                    >
+                      <MenuItem value={"Modelo 1"}>Modelo 1</MenuItem>
+                      <MenuItem value={"Modelo 2"}>Modelo 2</MenuItem>
+                    </Field>
+                  </FormControl>
                   <Field
                     id="precio"
                     name="precio"
