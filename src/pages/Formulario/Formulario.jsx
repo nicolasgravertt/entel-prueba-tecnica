@@ -1,5 +1,6 @@
 import Header from "../../components/Formulario/Header";
 import TextField from "@mui/material/TextField";
+import RutTextField from "../../components/helper/RutTextField";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import {
@@ -85,8 +86,9 @@ const Formulario = () => {
                     id="rut"
                     name="rut"
                     label="Rut Vendedor *"
+                    type="text"
                     helperText={touched.rut && errors.rut}
-                    as={TextField}
+                    as={RutTextField}
                     error={Boolean(touched.rut && errors.rut)}
                   />
                 </div>
@@ -134,6 +136,7 @@ const Formulario = () => {
                     id="precio"
                     name="precio"
                     label="Precio del vehículo *"
+                    type="number"
                     helperText={touched.precio && errors.precio}
                     as={TextField}
                     error={Boolean(touched.precio && errors.precio)}
