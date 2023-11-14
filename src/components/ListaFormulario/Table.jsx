@@ -5,45 +5,69 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
+import { useSelector } from "react-redux";
+import { selectAllUsers } from "../../features/dataSlice";
+import { useDispatch } from "react-redux";
+import { userDeleted } from "../../features/dataSlice";
+import { useSnackbar } from "notistack";
+import { Basurero } from "../../assets";
 
 export default function Lista() {
+  const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+  const users = useSelector(selectAllUsers);
+
+  const handleDelete = (id) => {
+    try {
+      dispatch(userDeleted(id));
+      enqueueSnackbar("Usuario Eliminado Correctamente", {
+        variant: "success",
+      });
+    } catch (error) {
+      enqueueSnackbar(`${error}`, {
+        variant: "error",
+      });
+    }
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>Nombre</TableCell>
+            <TableCell align="right">Rut Vendedor</TableCell>
+            <TableCell align="right">Patente Vehículo</TableCell>
+            <TableCell align="right">Marca Vehículo</TableCell>
+            <TableCell align="right">Modelo Vehículo</TableCell>
+            <TableCell align="right">Eliminar</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {users.map((user) => (
             <TableRow
-              key={row.name}
+              key={user.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {user.nombre}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{user.rut}</TableCell>
+              <TableCell align="right">{user.patente}</TableCell>
+              <TableCell align="right">{user.marca}</TableCell>
+              <TableCell align="right">{user.modelo}</TableCell>
+              <TableCell align="right">
+                <img
+                  src={Basurero}
+                  alt="Icon"
+                  style={{
+                    width: "20px",
+                    marginRight: "5px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleDelete(user.id)}
+                />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

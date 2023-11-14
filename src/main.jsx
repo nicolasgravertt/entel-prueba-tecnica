@@ -1,18 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
-import App from "./App.jsx";
-import "./index.css";
+import { SnackbarProvider } from "notistack";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/*" element={<App />} />
-        </Routes>
+        <SnackbarProvider>
+          <Routes>
+            <Route path="/*" element={<App />} />
+          </Routes>
+        </SnackbarProvider>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

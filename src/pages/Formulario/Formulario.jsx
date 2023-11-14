@@ -3,6 +3,9 @@ import TextField from "@mui/material/TextField";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { Divider } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { userAdded } from "../../features/dataSlice";
+import { useSnackbar } from "notistack";
 import "./Formulario.css";
 
 const validationSchema = yup.object().shape({
@@ -24,10 +27,18 @@ const initialValues = {
 };
 
 const Formulario = () => {
+  const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
   const handleSubmit = (values, { resetForm }) => {
-    // Handle form submission here
-    console.log(values);
-    resetForm();
+    try {
+      dispatch(userAdded(values));
+      resetForm();
+      enqueueSnackbar("Usuario Agregado Correctamente", { variant: "success" });
+    } catch (error) {
+      enqueueSnackbar(`${error}`, {
+        variant: "error",
+      });
+    }
   };
 
   return (
