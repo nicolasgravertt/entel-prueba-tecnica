@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
+import React from "react";
 import TextField from "@mui/material/TextField";
 import MaskedInput from "react-text-mask";
 
-const RutMask = (props) => {
+const RutMask = React.forwardRef(function MyInput(props, ref) {
   const { inputRef, ...other } = props;
 
   const rutMask = (value) => {
@@ -26,7 +28,7 @@ const RutMask = (props) => {
       pipe={rutMask}
     />
   );
-};
+});
 
 const RutTextField = (props) => {
   return (
