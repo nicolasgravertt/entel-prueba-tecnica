@@ -10,7 +10,10 @@ import "./Formulario.css";
 
 const validationSchema = yup.object().shape({
   nombre: yup.string().required("Nombre es requerido"),
-  rut: yup.string().required("clave requerida."),
+  rut: yup
+    .string()
+    .matches(/^[0-9]{1,2}\.?[0-9]{3}\.?[0-9]{3}-?[0-9kK]$/, "RUT Invalido")
+    .required("Rut requerido."),
   patente: yup.string().required("patente es requerida"),
   marca: yup.string().required("marca es requerida"),
   modelo: yup.string().required("modelo es requerido"),
@@ -64,10 +67,11 @@ const Formulario = () => {
                 <h3>Datos del vendedor:</h3>
                 <div className="seller-form-container">
                   <Field
-                    style={{ gridColumn: "span 2" }}
+                    className="item-nombre"
                     id="nombre"
                     name="nombre"
                     label="Nombre Completo *"
+                    helperText={touched.nombre && errors.nombre}
                     as={TextField}
                     error={Boolean(touched.nombre && errors.nombre)}
                   />
@@ -75,6 +79,7 @@ const Formulario = () => {
                     id="rut"
                     name="rut"
                     label="Rut Vendedor *"
+                    helperText={touched.rut && errors.rut}
                     as={TextField}
                     error={Boolean(touched.rut && errors.rut)}
                   />
@@ -86,6 +91,7 @@ const Formulario = () => {
                     id="patente"
                     name="patente"
                     label="Patente del vehículo *"
+                    helperText={touched.patente && errors.patente}
                     as={TextField}
                     error={Boolean(touched.patente && errors.patente)}
                   />
@@ -93,6 +99,7 @@ const Formulario = () => {
                     id="marca"
                     name="marca"
                     label="Marca del vehículo *"
+                    helperText={touched.marca && errors.marca}
                     as={TextField}
                     error={Boolean(touched.marca && errors.marca)}
                   />
@@ -100,6 +107,7 @@ const Formulario = () => {
                     id="modelo"
                     name="modelo"
                     label="Modelo del vehículo *"
+                    helperText={touched.modelo && errors.modelo}
                     as={TextField}
                     error={Boolean(touched.modelo && errors.modelo)}
                   />
@@ -107,6 +115,7 @@ const Formulario = () => {
                     id="precio"
                     name="precio"
                     label="Precio del vehículo *"
+                    helperText={touched.precio && errors.precio}
                     as={TextField}
                     error={Boolean(touched.precio && errors.precio)}
                   />
