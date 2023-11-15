@@ -1,8 +1,27 @@
-# React + Vite
+# FrontEnd - Administrador de vehículos.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sistema CRUD que registra vehículos y los lista en una tabla
 
-Currently, two official plugins are available:
+Este sistema fue creado en base a una prueba técnica entregada por Entel, el cual fue programado con Redux Toolkit y cuenta con las siguientes caracteristicas:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Crear nuevos registros sobre vehiculos y su persona.
+- Eliminar registros creados
+- Listar los registros en una tabla
+
+## Imagenes de ejemplo.
+
+![Alt Text](https://github.com/nicolasgravertt/afex-seleccion-proyect/blob/main/src/assets/Formulario.png?raw=true)
+
+![Alt Text](https://github.com/nicolasgravertt/afex-seleccion-proyect/blob/main/src/assets/FormularioMobile.png?raw=true)
+
+![Alt Text](https://github.com/nicolasgravertt/afex-seleccion-proyect/blob/main/src/assets/Listar.png?raw=true)
+
+## Instrucciones de instalacion y ejecucion del proyecto.
+
+- Clonar el proyecto.
+- Instalar dependencias ejecutando en la consola el comando npm install.
+- Inicializar proyecto con npm run dev
+
+## Disponible para usarse y modificarse
+
+Al ser un proyecto sin fines de lucro, sientanse libres de utilizarlo y modificarlo tanto como gusten.
