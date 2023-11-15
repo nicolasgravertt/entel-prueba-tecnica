@@ -10,11 +10,11 @@ Este sistema fue creado en base a una prueba técnica entregada por Entel, el cu
 
 ## Imagenes de ejemplo.
 
-![Alt Text](https://github.com/nicolasgravertt/afex-seleccion-proyect/blob/main/src/assets/Formulario.png?raw=true)
+![Alt Text](https://github.com/nicolasgravertt/entel-prueba-tecnica/blob/main/src/assets/Formulario.png?raw=true)
 
-![Alt Text](https://github.com/nicolasgravertt/afex-seleccion-proyect/blob/main/src/assets/FormularioMobile.png?raw=true)
+![Alt Text](https://github.com/nicolasgravertt/entel-prueba-tecnica/blob/main/src/assets/FormularioMobile.png?raw=true)
 
-![Alt Text](https://github.com/nicolasgravertt/afex-seleccion-proyect/blob/main/src/assets/Listar.png?raw=true)
+![Alt Text](https://github.com/nicolasgravertt/entel-prueba-tecnica/blob/main/src/assets/Listar.png?raw=true)
 
 ## Instrucciones de instalacion y ejecucion del proyecto.
 
