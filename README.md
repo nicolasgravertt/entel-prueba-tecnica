@@ -10,9 +10,15 @@ Este sistema fue creado en base a una prueba técnica entregada por Entel, el cu
 
 ## Imagenes de ejemplo.
 
+#### Formulario.
+
 ![Alt Text](https://github.com/nicolasgravertt/entel-prueba-tecnica/blob/main/src/assets/Formulario.png?raw=true)
 
+#### Formulario Mobile.
+
 ![Alt Text](https://github.com/nicolasgravertt/entel-prueba-tecnica/blob/main/src/assets/FormularioMobile.png?raw=true)
+
+#### Listado.
 
 ![Alt Text](https://github.com/nicolasgravertt/entel-prueba-tecnica/blob/main/src/assets/Listar.png?raw=true)
 
